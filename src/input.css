@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+body{
+    background-color: #00193c;
+}
+
+thead tr{
+    background-color: #0a3773;
+}
+
+thead tr th{
+    color: #cccfdd;
+}
+
+tbody tr{
+    color: #a6b4ca;
+    background-color: #00193c;
+}
+
+textarea{
+    background-color: #002864;
+    color: #a6b4ca;
+}
+
