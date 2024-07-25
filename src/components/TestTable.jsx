@@ -5,6 +5,8 @@ const TestTable = ({ searchQuery, filterType, filterValue }) => {
     const [testCases, setTestCases] = useState([]);
     const [filteredCases, setFilteredCases] = useState([]);
 
+    const BASE_URL = "http://127.0.0.1:5000";
+
     useEffect(() => {
         fetchTestCases();
     }, []);
@@ -15,7 +17,7 @@ const TestTable = ({ searchQuery, filterType, filterValue }) => {
 
     const fetchTestCases = async () => {
         try {
-            const response = await fetch("http://127.0.0.1:5000/get_test_cases");
+            const response = await fetch(`${BASE_URL}/get_test_cases`);
             if (!response.ok) {
                 throw new Error("Network response was not ok");
             }
@@ -53,7 +55,7 @@ const TestTable = ({ searchQuery, filterType, filterValue }) => {
     const handleStatusChange = async (test_case_id, newStatus) => {
         try {
             if (newStatus === "null") return;
-            const response = await fetch(`http://127.0.0.1:5000/update_test_case/${test_case_id}`, {
+            const response = await fetch(`${BASE_URL}/update_test_case/${test_case_id}`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
